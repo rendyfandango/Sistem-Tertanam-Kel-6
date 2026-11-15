@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+include($ENV{IDF_PATH}/tools/cmake/version.cmake)
+if("${IDF_VERSION_MAJOR}.${IDF_VERSION_MINOR}" VERSION_LESS "5.3")
+    message(FATAL_ERROR "TiltGuard requires ESP-IDF >= 5.3 (esp_driver_i2c component)")
+endif()
+set(COMPONENTS main)
+project(tiltguard_mpu6050)
